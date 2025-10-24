@@ -1,0 +1,120 @@
+:root {
+  --bg: #f5f7fa;
+  --card-bg: #fff;
+  --primary: #007bff;
+  --delete: #e63946;
+  --border: #ddd;
+  --text: #333;
+  --radius: 10px;
+  --shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+}
+
+h1 {
+  margin-bottom: 0.3rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+h2 {
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.3rem;
+}
+
+.form-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+input, select {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  font-size: 1rem;
+}
+
+button {
+  background: var(--primary);
+  border: none;
+  color: #fff;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+button.delete {
+  background: var(--delete);
+}
+
+button.delete:hover {
+  background: #b32d34;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fafafa;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.level {
+  color: #555;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+
+.no-data {
+  color: #888;
+  font-style: italic;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}

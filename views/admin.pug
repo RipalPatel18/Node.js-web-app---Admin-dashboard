@@ -1,0 +1,54 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Admin Dashboard
+    link(rel="stylesheet" href="/css/style.css")
+  body
+    header
+      h1 Admin Dashboard
+      p Manage your projects and skills below.
+
+    main.container
+      section.card
+        h2 Projects
+        form(action="/admin/projects" method="POST" class="form-inline")
+          input(type="text" name="title" placeholder="Project Title" required)
+          input(type="text" name="description" placeholder="Description")
+          button(type="submit") Add
+        ul.list
+          if projects.length
+            each project in projects
+              li.list-item
+                div
+                  strong= project.title
+                  p= project.description
+                form(action=`/admin/projects/${project._id}/delete` method="POST")
+                  button.delete(type="submit")  Delete
+          else
+            p.no-data No projects yet.
+
+      section.card
+        h2 Skills
+        form(action="/admin/skills" method="POST" class="form-inline")
+          input(type="text" name="name" placeholder="Skill Name" required)
+          select(name="level")
+            option(value="Beginner") Beginner
+            option(value="Intermediate" selected) Intermediate
+            option(value="Advanced") Advanced
+          button(type="submit")  Add
+        ul.list
+          if skills.length
+            each skill in skills
+              li.list-item
+                div
+                  strong= skill.name
+                  span.level= skill.level
+                form(action=`/admin/skills/${skill._id}/delete` method="POST")
+                  button.delete(type="submit")  Delete
+          else
+            p.no-data No skills yet.
+
+    footer
+      p © #{new Date().getFullYear()} Admin Dashboard — HTTP5222 Assignment 1 - Ripal Patel
